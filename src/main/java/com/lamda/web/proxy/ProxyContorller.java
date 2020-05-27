@@ -28,4 +28,9 @@ public class ProxyContorller  {
         pxy.print("박스에 담긴 카운트: "+box.get("count"));
         return box.get();
     }
+    @PostMapping("/soccer")
+    public String soccer(@RequestBody String searchWord){
+        pxy.print("넘어온 키워드 : "+searchWord);
+        return null;
+    }
 }
