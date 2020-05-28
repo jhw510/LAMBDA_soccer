@@ -31,8 +31,8 @@ public class Crawler extends Proxy{
             for(int i=0;i<title.size();i++){
                 map=new HashMap<>();
                 map.put("seq",string(i+1));
-                map.put("title",title.get(i).text());
                 map.put("artist",artist.get(i).text());
+                map.put("title",title.get(i).text());
                 map.put("thumbnail",thumbnail.get(i).select("img").attr("src"));
                 inventory.add(map);
             }
@@ -41,6 +41,7 @@ public class Crawler extends Proxy{
         }
         print("*************크롤링 결과*************");
         inventory.get().forEach(System.out::print);
+
         return inventory.get();
     }
 }
