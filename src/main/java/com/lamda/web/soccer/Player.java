@@ -5,13 +5,14 @@ package com.lamda.web.soccer;
 import lombok.*;
 import javax.validation.constraints.NotNull;
 import javax.persistence.*;
+import org.springframework.context.annotation.Lazy;
 
 
 @Data
-
-
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity(name = "player")
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Entity(name="player")
+@Lazy
 public class Player {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,13 +43,6 @@ public class Player {
     @Column(length = 10)
     private String weight;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id") @NotNull
-    private Team team;
-
-
-
     @Builder
     public Player (String playerId,String playerName
             ,String ePlayerName,String nickname,String joinYyyy,String position,String backNo
@@ -67,5 +61,123 @@ public class Player {
         this.solar=solar;
         this.height=height;
         this.weight=weight;
+
+
     }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+    public Long getPlayerNo() {
+        return playerNo;
+    }
+
+    public void setPlayerNo(Long playerNo) {
+        this.playerNo = playerNo;
+    }
+
+    public String getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public String getePlayerName() {
+        return ePlayerName;
+    }
+
+    public void setePlayerName(String ePlayerName) {
+        this.ePlayerName = ePlayerName;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getJoinYyyy() {
+        return joinYyyy;
+    }
+
+    public void setJoinYyyy(String joinYyyy) {
+        this.joinYyyy = joinYyyy;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getBackNo() {
+        return backNo;
+    }
+
+    public void setBackNo(String backNo) {
+        this.backNo = backNo;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getSolar() {
+        return solar;
+    }
+
+    public void setSolar(String solar) {
+        this.solar = solar;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+    public Player (){}
 }

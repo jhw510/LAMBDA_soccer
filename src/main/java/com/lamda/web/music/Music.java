@@ -10,13 +10,13 @@ import javax.persistence.*;
 public class Music {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long musicNo;
-    @Column(length = 4, nullable = false)
+    @Column(length = 4)
     private String seq;
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String title;
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String artists;
-    @Column(length = 200, nullable = false)
+    @Column(length = 200)
     private String thumbnail;
     @Builder
     public Music(String seq, String title, String artists,
