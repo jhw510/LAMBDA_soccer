@@ -33,7 +33,7 @@ public void upload(){
 
 
     }catch (Exception e){
-      print("파일 리딩 에러");
+      print("파일 리 딩 에러 났어요");
         e.printStackTrace();
     }
     print("--------------------------------------\n");
